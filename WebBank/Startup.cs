@@ -27,7 +27,7 @@ namespace WebBank
         {
             services.AddRazorPages();
             services.AddDbContext<BankContext>(options =>
-                    options.UseSqlServer("Data Source=SSMLNSK;Initial Catalog=Bank;Integrated Security=True"));
+                    options.UseSqlServer("Data Source=localhost;Initial Catalog=Bank;Integrated Security=True"));
         }
 
 
