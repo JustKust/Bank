@@ -1,0 +1,85 @@
+﻿@page
+@model WebBank.Pages.Depositors.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Depositor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Depositor.DepostorId" />
+            <div class="form-group">
+                <label asp-for="Depositor.FullName" class="control-label"></label>
+                <input asp-for="Depositor.FullName" class="form-control" />
+                <span asp-validation-for="Depositor.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.Adress" class="control-label"></label>
+                <input asp-for="Depositor.Adress" class="form-control" />
+                <span asp-validation-for="Depositor.Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.PhoneNum" class="control-label"></label>
+                <input asp-for="Depositor.PhoneNum" class="form-control" />
+                <span asp-validation-for="Depositor.PhoneNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.PassData" class="control-label"></label>
+                <input asp-for="Depositor.PassData" class="form-control" />
+                <span asp-validation-for="Depositor.PassData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.DeposDate" class="control-label"></label>
+                <input asp-for="Depositor.DeposDate" class="form-control" />
+                <span asp-validation-for="Depositor.DeposDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.RefundDate" class="control-label"></label>
+                <input asp-for="Depositor.RefundDate" class="form-control" />
+                <span asp-validation-for="Depositor.RefundDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.SummAm" class="control-label"></label>
+                <input asp-for="Depositor.SummAm" class="form-control" />
+                <span asp-validation-for="Depositor.SummAm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.SummRef" class="control-label"></label>
+                <input asp-for="Depositor.SummRef" class="form-control" />
+                <span asp-validation-for="Depositor.SummRef" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.DepRafMark" class="control-label"></label>
+                <input asp-for="Depositor.DepRafMark" class="form-control" />
+                <span asp-validation-for="Depositor.DepRafMark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.EmId" class="control-label"></label>
+                <select asp-for="Depositor.EmId" class="form-control" asp-items="ViewBag.EmId"></select>
+                <span asp-validation-for="Depositor.EmId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.DepId" class="control-label"></label>
+                <input asp-for="Depositor.DepId" class="form-control" />
+                <span asp-validation-for="Depositor.DepId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

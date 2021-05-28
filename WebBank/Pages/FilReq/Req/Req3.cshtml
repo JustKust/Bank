@@ -1,0 +1,58 @@
+﻿@page
+@model WebBank.Pages.FilReq.Req.Req3Model
+@{
+    <h1>Вкладчики</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depositor[0].DepostorId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depositor[0].DepId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depositor[0].EmId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Depositor)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepostorId)
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Deposit.First(r => r.DepId == item.DepId).DepName
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Employee.First(r => r.EmId == item.EmId).FullName
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,43 @@
+﻿@page
+@model WebBank.Pages.FilReq.Req.Req1Model
+@{
+    <h1>Отдел кадров</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].PosId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Employee)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Position.First(r => r.PosId == item.PosId).PosName
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

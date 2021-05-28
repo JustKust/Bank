@@ -1,0 +1,60 @@
+﻿@page
+@model WebBank.Pages.Deposits.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Deposit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Deposit.DepId" />
+            <div class="form-group">
+                <label asp-for="Deposit.DepName" class="control-label"></label>
+                <input asp-for="Deposit.DepName" class="form-control" />
+                <span asp-validation-for="Deposit.DepName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deposit.MinDepTern" class="control-label"></label>
+                <input asp-for="Deposit.MinDepTern" class="form-control" />
+                <span asp-validation-for="Deposit.MinDepTern" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deposit.MinDepAmount" class="control-label"></label>
+                <input asp-for="Deposit.MinDepAmount" class="form-control" />
+                <span asp-validation-for="Deposit.MinDepAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deposit.AddCond" class="control-label"></label>
+                <input asp-for="Deposit.AddCond" class="form-control" />
+                <span asp-validation-for="Deposit.AddCond" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deposit.InterestRate" class="control-label"></label>
+                <input asp-for="Deposit.InterestRate" class="form-control" />
+                <span asp-validation-for="Deposit.InterestRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deposit.CurId" class="control-label"></label>
+                <select asp-for="Deposit.CurId" class="form-control" asp-items="ViewBag.CurId"></select>
+                <span asp-validation-for="Deposit.CurId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

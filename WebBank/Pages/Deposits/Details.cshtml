@@ -1,0 +1,55 @@
+﻿@page
+@model WebBank.Pages.Deposits.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Deposit</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deposit.DepName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deposit.DepName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deposit.MinDepTern)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deposit.MinDepTern)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deposit.MinDepAmount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deposit.MinDepAmount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deposit.AddCond)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deposit.AddCond)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deposit.InterestRate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deposit.InterestRate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deposit.Cur)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deposit.Cur.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Deposit.DepId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

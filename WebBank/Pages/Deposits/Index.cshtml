@@ -1,0 +1,66 @@
+﻿@page
+@model WebBank.Pages.Deposits.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Deposit[0].DepName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deposit[0].MinDepTern)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deposit[0].MinDepAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deposit[0].AddCond)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deposit[0].InterestRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deposit[0].Cur)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Deposit) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinDepTern)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinDepAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddCond)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InterestRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cur.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DepId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DepId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DepId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

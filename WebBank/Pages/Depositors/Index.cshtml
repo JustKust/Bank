@@ -1,0 +1,96 @@
+﻿@page
+@model WebBank.Pages.Depositors.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].PhoneNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].PassData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].DeposDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].RefundDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].SummAm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].SummRef)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].DepRafMark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].DepId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].Em)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Depositor) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeposDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefundDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SummAm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SummRef)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepRafMark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Em.Adress)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DepostorId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DepostorId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DepostorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

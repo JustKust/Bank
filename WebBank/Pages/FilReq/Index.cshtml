@@ -1,0 +1,85 @@
+﻿@page
+@model WebBank.Pages.FilReq.IndexModel
+@{
+
+    <script>
+    function BtnFun(Classname, obj) {
+        var value = obj.value;
+        var name = "." + Classname;
+        if (value[0] != "-") {
+            $(name).prop('disabled', false);
+        }
+        else {
+            $(name).prop('disabled', true);
+        }
+    }
+    </script>
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="text-decoration: none">
+                        Запросы
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/FilReq/Req/Req1">Отдел кадров</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/FilReq/Req/Req2">Вклады</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/FilReq/Req/Req3">Вкладчики</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="text-decoration: none">
+                        Фильтры
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <form>
+                        Отобразить сотрудников с должностью:
+                        <select asp-items="Model.Position" name="id" class="form-control-sm">
+                            <option value="-1">Должность не выбрана</option>
+                        </select>
+                        <button asp-page="Fil/Fil1" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+
+                    <form>
+                        Отобразить вклады с валютой:
+                        <select asp-items="Model.Currency" name="id" class="form-control-sm">
+                            <option value="-1">Валюта не выбрана</option>
+                        </select>
+                        <button asp-page="Fil/Fil2" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+
+                    <form>
+                        Отобразить вкладчиков со вкладами:
+                        <select asp-items="Model.Deposit" name="id" class="form-control-sm">
+                            <option value="-1">Вклад не выбран</option>
+                        </select>
+                        <button asp-page="Fil/Fil3" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+
+                    <form>
+                        Отобразить возвращённые/невозвращённые вклады:
+                        <select asp-items="Model.Mark" name="Mark" class="form-control-sm">
+                            <option value="-1">Отметка не выбрана</option>
+                        </select>
+                        <button asp-page="Fil/Fil4" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+}

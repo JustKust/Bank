@@ -1,0 +1,43 @@
+﻿@page
+@model WebBank.Pages.FilReq.Req.Req2Model
+@{
+    <h1>Вклады</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Deposit[0].DepName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Deposit[0].CurId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Deposit)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepName)
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Currency.First(r => r.CurId == item.CurId).Name
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

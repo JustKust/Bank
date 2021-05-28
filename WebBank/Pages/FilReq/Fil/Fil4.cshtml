@@ -1,0 +1,32 @@
+﻿@page
+@model WebBank.Pages.FilReq.Fil.Fil4Model
+@{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depositor[0].DepId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depositor[0].DepRafMark)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Depositor)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepRafMark)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

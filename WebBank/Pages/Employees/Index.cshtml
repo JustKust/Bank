@@ -1,0 +1,66 @@
+﻿@page
+@model WebBank.Pages.Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Pos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Employee) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pos.PosName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.EmId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.EmId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EmId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

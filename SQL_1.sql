@@ -1,0 +1,59 @@
+CREATE TABLE positions
+(
+  PosID INT NOT NULL,
+  PosName VARCHAR(60) NOT NULL,
+  Salary INT NOT NULL,
+  Responsibilities VARCHAR(200) NOT NULL,
+  Requirements VARCHAR(200) NOT NULL,
+  PRIMARY KEY (PosID)
+);
+
+CREATE TABLE Currency
+(
+  CurID INT NOT NULL,
+  Name INT NOT NULL,
+  ExchangeRate INT NOT NULL,
+  PRIMARY KEY (CurID)
+);
+
+CREATE TABLE Employee
+(
+  EmID INT NOT NULL,
+  Full_Name VARCHAR(60) NOT NULL,
+  Adress VARCHAR(100) NOT NULL,
+  Telephone VARCHAR(11) NOT NULL,
+  Age INT NOT NULL,
+  Gender CHAR(1) NOT NULL,
+  PosID INT NOT NULL,
+  PRIMARY KEY (EmID),
+  FOREIGN KEY (PosID) REFERENCES positions(PosID)
+);
+
+CREATE TABLE Deposits
+(
+  DepID INT NOT NULL,
+  DepName VARCHAR(60) NOT NULL,
+  MinDepTern INT NOT NULL,
+  MinDepAmount INT NOT NULL,
+  AddCond INT NOT NULL,
+  CurID INT NOT NULL,
+  PRIMARY KEY (DepID),
+  FOREIGN KEY (CurID) REFERENCES Currency(CurID)
+);
+
+CREATE TABLE Depositors
+(
+  FullName VARCHAR(60) NOT NULL,
+  Adress VARCHAR(100) NOT NULL,
+  PhoneNum VARCHAR(11) NOT NULL,
+  PassData VARCHAR(20) NOT NULL,
+  DeposDate DATE NOT NULL,
+  RefundDate DATE NOT NULL,
+  SummAm INT NOT NULL,
+  SummRef INT NOT NULL,
+  DepRafMark INT NOT NULL,
+  EmID INT NOT NULL,
+  DepID INT NOT NULL,
+  FOREIGN KEY (EmID) REFERENCES Employee(EmID),
+  FOREIGN KEY (DepID) REFERENCES Deposits(DepID)
+);
